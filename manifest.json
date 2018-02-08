@@ -1,0 +1,15 @@
+{
+  "name": "TMJ Relaxtion Reminder",
+  "description": "Reminds you to relax",
+  "version": "1.0",
+  "manifest_version": 2,
+  "permissions": ["alarms", "notifications", "storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_title": "Relax",
+    "default_popup": "popup.html"
+  }
+}
