@@ -30,14 +30,14 @@ found in the LICENSE file. -->
     </style>
   </head>
   <body>
-      <img src='./relax.png' id='relaxImage'>
-      <!-- An Alarm delay of less than the minimum 1 minute will fire
-      in approximately 1 minute incriments if released -->
-      <p>How often should the alarm go off?</p>
-      <button id='7min' value='7'>7 Minutes</button>
-      <button id='15min' value='15'>15 Minutes</button>
-      <button id='30min' value='30'>30 Minutes</button>
-      <button id='cancelAlarm'>Cancel Alarm</button>
+    <img src='./relax.png' id='relaxImage'>
+    <!-- An Alarm delay of less than the minimum 1 minute will fire
+    in approximately 1 minute incriments if released -->
+    <p>How often should the alarm go off?</p>
+    <input type="range" min="1" max="60" value="30" id="slider">
+    <p id="sliderText">Every 30 minutes</p>
+
+    <button id='cancelAlarm'>Cancel Alarm</button>
    <!-- link to non-persistent background script -->
    <script src="popup.js"></script>
   </body>

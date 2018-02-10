@@ -3,12 +3,29 @@
 // found in the LICENSE file.
 'use strict';
 
-function setAlarm(event) {
+// function setAlarm(event) {
+//   let minutes = parseFloat(event.target.value);
+//   chrome.browserAction.setBadgeText({text: 'ON'});
+//   chrome.alarms.create({periodInMinutes: minutes});
+//   chrome.storage.sync.set({minutes: minutes});
+//   window.close();
+// }
+
+function setSliderAlarm(event) {
   let minutes = parseFloat(event.target.value);
   chrome.browserAction.setBadgeText({text: 'ON'});
   chrome.alarms.create({periodInMinutes: minutes});
   chrome.storage.sync.set({minutes: minutes});
-  window.close();
+  document.getElementById('sliderText').innerHTML = `Every ${minutes} minutes`;
+}
+
+function setSliderText() {
+  chrome.storage.sync.get('minutes', (item) => {
+    const sliderText = document.getElementById('sliderText');
+    const slider = document.getElementById('slider');
+    sliderText.innerHTML = `Every ${item.minutes} minutes`;
+    slider.value = item.minutes;
+  });
 }
 
 function clearAlarm() {
@@ -17,7 +34,6 @@ function clearAlarm() {
   window.close();
 }
 
-document.getElementById('7min').addEventListener('click', setAlarm);
-document.getElementById('15min').addEventListener('click', setAlarm);
-document.getElementById('30min').addEventListener('click', setAlarm);
+document.getElementById('slider').addEventListener('change', setSliderAlarm);
+setSliderText(); // whenever user opens popup
 document.getElementById('cancelAlarm').addEventListener('click', clearAlarm);
