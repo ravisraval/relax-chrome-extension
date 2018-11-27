@@ -8,7 +8,7 @@ chrome.alarms.onAlarm.addListener(function() {
       type:     'basic',
       iconUrl:  'relax.png',
       title:    'Relax',
-      message:  'Let those muscles goo',
+      message:  'Let those muscles goo and slow down',
       priority: 0});
 });
 
